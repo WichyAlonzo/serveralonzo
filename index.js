@@ -1,16 +1,13 @@
 const http = require('http');
 
-// Crea un servidor HTTP
-const server = http.createServer((req, res) => {
-  // Configura las cabeceras de la respuesta HTTP
-  res.writeHead(200, { 'Content-Type': 'text/plain' });
+const direccion = 'https://nodejs-production-4160.up.railway.app/'; // Cambia esto a la dirección que desees
+const puerto = 3000; // Cambia esto al puerto que desees
 
-  // Escribe el mensaje de respuesta
+const server = http.createServer((req, res) => {
+  res.writeHead(200, { 'Content-Type': 'text/plain' });
   res.end('¡Hola, mundo desde Node.js!\n');
 });
 
-// Escucha en el puerto 3000
-const puerto = 3000;
-server.listen(puerto, () => {
-  console.log(`Servidor Node.js escuchando en el puerto ${puerto}`);
+server.listen(puerto, direccion, () => {
+  console.log(`Servidor Node.js escuchando en http://${direccion}:${puerto}/`);
 });
